@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Details</title>
+</head>
+<body>
+<h1>Developer Details</h1>
+<h2 th:text="'Username: ' + ${username}"></h2>
+<h2 th:text="'Email: ' + ${email}"></h2>
+<p>Commit list for this developer:</p>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Hash</th>
+        <th>Timestamp</th>
+        <th>Message</th>
+        <th>Patch</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="commit : ${commits}">
+        <tr>
+            <td th:text="${commit.sha}"></td>
+            <td th:text="${commit.timestamp}"></td>
+            <td th:text="${commit.message}"></td>
+            <td th:text="${commit.patch}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<a href="/commits">Back to Commit List</a>
+</body>
+</html>

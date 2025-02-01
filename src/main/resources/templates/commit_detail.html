@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Detail</title>
+</head>
+<body>
+<h1>Commit Detail</h1>
+<table border="1">
+    <tr>
+        <th>Hash</th>
+        <td th:text="${commit.sha}"></td>
+    </tr>
+    <tr>
+        <th>Timestamp</th>
+        <td th:text="${commit.timestamp}"></td>
+    </tr>
+    <tr>
+        <th>Message</th>
+        <td th:text="${commit.message}"></td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td th:text="${commit.authorName}"></td>
+    </tr>
+    <tr>
+        <th>Patch</th>
+        <td th:text="${commit.patch}"></td>
+    </tr>
+</table>
+<a href="/commits">Back to Commit List</a>
+</body>
+</html>

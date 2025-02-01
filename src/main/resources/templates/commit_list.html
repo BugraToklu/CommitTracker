@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit List</title>
+</head>
+<body>
+<h1>Commit List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Hash</th>
+        <th>Timestamp</th>
+        <th>Author</th>
+        <th>Detay</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="commit : ${commits}">
+        <tr>
+            <td th:text="${commit.sha}"></td>
+            <td th:text="${commit.timestamp}"></td>
+            <td>
+                <!-- Developer sayfasına yönlendirme -->
+                <a th:href="@{/developer/{email}(email=${commit.authorEmail})}" th:text="${commit.authorName}"></a>
+            </td>
+            <td>
+                <!-- Commit detayına yönlendirme -->
+                <a th:href="@{/commits/{sha}(sha=${commit.sha})}">Detay</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
